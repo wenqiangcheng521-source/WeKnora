@@ -209,6 +209,8 @@ jobs:
           export GOLANG_PROTOBUF_REGISTRATION_CONFLICT=warn
           export CGO_CFLAGS="-Wno-deprecated-declarations"
           cd cmd/desktop
+          go clean -modcache
+          go mod download
           go build -p 1 -buildvcs=false -tags "desktop,sqlite_fts5,production" -o _prebuild_tmp.exe . || true
           rm -f _prebuild_tmp.exe
 
