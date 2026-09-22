@@ -18,7 +18,7 @@ permissions:
   contents: write
 
 env:
-  GO_VERSION: "1.26"
+  GO_VERSION: "1.24"
   NODE_VERSION: "22"
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
@@ -209,8 +209,6 @@ jobs:
           export GOLANG_PROTOBUF_REGISTRATION_CONFLICT=warn
           export CGO_CFLAGS="-Wno-deprecated-declarations"
           cd cmd/desktop
-          go clean -modcache
-          go mod download
           go build -p 1 -buildvcs=false -tags "desktop,sqlite_fts5,production" -o _prebuild_tmp.exe . || true
           rm -f _prebuild_tmp.exe
 
