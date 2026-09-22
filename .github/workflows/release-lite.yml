@@ -236,7 +236,7 @@ jobs:
 
           bash ./scripts/check-license-bundle.sh
           cd cmd/desktop
-          wails build -clean \
+          wails build -clean -skipbindings -s \
             -tags "${BUILD_TAGS}" \
             -platform "${{ matrix.platform }}" \
             ${NSIS_FLAG} \
